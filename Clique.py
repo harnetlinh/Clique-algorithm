@@ -259,7 +259,7 @@ if __name__ == "__main__":
     feature_columns = [0,1,2,3,4,5,6,7] #, 2,3,4,5,6,7,8]
     label_column = -1
     xsi = 10
-    tau = 0.7
+    tau = 0.1           #107 data points
     delimiter = ';'
     output_file = "output_clusters2.txt"
 
@@ -270,7 +270,7 @@ if __name__ == "__main__":
     # Read in data with labels
     path = os.path.join(os.path.abspath(os.path.dirname(__file__)), file_name)
     original_data = read_data(delimiter, feature_columns, path)
-    # labels = read_labels(delimiter, label_column, path)
+    labels = read_labels(delimiter, label_column, path)
 
     # Normalize each dimension to the [0,1] range
     data = normalize_features(original_data)
@@ -282,7 +282,7 @@ if __name__ == "__main__":
     print("\nClusters exported to " + output_file)
 
     # Evaluate results
-    # evaluate_clustering_performance(clusters, labels)
+    evaluate_clustering_performance(clusters, labels)
 
     # Visualize clusters
     # title = ("DS: " + file_name + " - Params: Tau=" +
