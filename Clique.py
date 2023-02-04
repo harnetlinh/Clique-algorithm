@@ -237,23 +237,31 @@ def read_data(delimiter, feature_columns, path):
 # Sample run: python Clique.py mouse.csv [0,1] 2 3 0.3 " " output_clusters.txt
 if __name__ == "__main__":
     # Clustering with command line parameters
-    if len(sys.argv) > 7:
-        file_name = sys.argv[1]
-        feature_columns = literal_eval(sys.argv[2])
-        label_column = int(sys.argv[3])
-        xsi = int(sys.argv[4])
-        tau = float(sys.argv[5])
-        delimiter = sys.argv[6]
-        output_file = sys.argv[7]
-    # Sample clustering with default parameters
-    else:
-        file_name = "Education_Indicators_2014_2.csv"
-        feature_columns = [0,1, 2,3,4,5,6,7,8]
-        label_column = -1
-        xsi = 3
-        tau = 0.1
-        delimiter = ';'
-        output_file = "output_clusters2.txt"
+    # if len(sys.argv) > 7:
+    #     file_name = sys.argv[1]
+    #     feature_columns = literal_eval(sys.argv[2])
+    #     label_column = int(sys.argv[3])
+    #     xsi = int(sys.argv[4])
+    #     tau = float(sys.argv[5])
+    #     delimiter = sys.argv[6]
+    #     output_file = sys.argv[7]
+    # # Sample clustering with default parameters
+    # else:
+    #     file_name = "Education_Indicators_2014_2.csv"
+    #     feature_columns = [0,1] #, 2,3,4,5,6,7,8]
+    #     label_column = -1
+    #     xsi = 3
+    #     tau = 0.1
+    #     delimiter = ';'
+    #     output_file = "output_clusters2.txt"
+    
+    file_name = "Education_Indicators_2014_2.csv"
+    feature_columns = [0,1,2,3,4,5,6,7] #, 2,3,4,5,6,7,8]
+    label_column = -1
+    xsi = 10
+    tau = 0.7
+    delimiter = ';'
+    output_file = "output_clusters2.txt"
 
     print("Running CLIQUE algorithm on " + file_name + " dataset, feature columns = " +
           str(feature_columns) + ", label column = " + str(label_column) + ", xsi = " +
